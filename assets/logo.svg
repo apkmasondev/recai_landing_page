@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Definicja gradientów i filtrów świecenia (neon glow) -->
+  <defs>
+    <!-- Neonowy gradient od cyjanu do fioletu -->
+    <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#66FCF1" />
+      <stop offset="100%" stop-color="#8A2BE2" />
+    </linearGradient>
+    
+    <!-- Subtelny cień/świecenie dla ikony mikrofonu -->
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Tło - okrąg z głęboką czernią i neonową obwódką -->
+  <circle cx="50" cy="50" r="46" fill="#0B0C10" stroke="url(#neonGradient)" stroke-width="2" />
+  
+  <!-- Grupa z przesunięciem i skalowaniem oryginalnej ścieżki z viewportu 24x24 na 100x100 -->
+  <!-- Współczynnik skalowania: 2.2, przesunięcie dopasowane tak, aby wyśrodkować mikrofon o wymiarach ok. 53x53 pikseli -->
+  <g transform="translate(23.5, 22.5) scale(2.2)" filter="url(#neonGlow)">
+    <path
+      fill="#66FCF1"
+      d="M12,14c1.66,0 3,-1.34 3,-3V5c0,-1.66 -1.34,-3 -3,-3S9,3.34 9,5v6C9,12.66 10.34,14 12,14zM17,11c0,2.76 -2.24,5 -5,5s-5,-2.24 -5,-5H5c0,3.53 2.61,6.43 6,6.92V21h2v-3.08c3.39,-0.49 6,-3.39 6,-6.92H17z" />
+  </g>
+</svg>

@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RecAI - Prywatny Dyktafon AI na Androida | Transkrypcja i Podsumowania</title>
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Poznaj RecAI - lokalny dyktafon na Androida z transkrypcją Whisper i podsumowaniami GPT. Pełna prywatność dzięki wykorzystaniu Twojego własnego klucza API OpenAI bez pośredniczących serwerów.">
+  <meta name="keywords" content="dyktafon ai, transkrypcja audio, whisper android, podsumowanie gpt, prywatne notatki głosowe, room database, kotlin android, gpt-4, whisper api">
+  <meta name="author" content="RecAI Team">
+  <meta name="robots" content="index, follow">
+
+  <!-- OpenGraph Tags (Social Media) -->
+  <meta property="og:title" content="RecAI - Prywatny Dyktafon AI na Androida">
+  <meta property="og:description" content="Zmień swoje nagrania w tekst i podsumowania z zachowaniem 100% prywatności. Aplikacja bezpośrednio łączy się z OpenAI przy użyciu Twojego klucza API.">
+  <meta property="og:image" content="assets/logo.png">
+  <meta property="og:url" content="https://github.com/recai">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Background Glowing Orbs -->
+  <div class="glow-orb orb-1" aria-hidden="true"></div>
+  <div class="glow-orb orb-2" aria-hidden="true"></div>
+
+  <!-- Header & Navigation -->
+  <header class="navbar-container">
+    <div class="navbar max-width">
+      <a href="#" class="logo-link" id="nav-logo">
+        <!-- Wstawiony SVG Logo bezpośrednio dla maksymalnej wydajności i kontroli CSS -->
+        <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="40" height="40" aria-label="RecAI Logo">
+          <circle cx="50" cy="50" r="46" fill="#0B0C10" stroke="#66FCF1" stroke-width="2" />
+          <g transform="translate(23.5, 22.5) scale(2.2)">
+            <path fill="#66FCF1" d="M12,14c1.66,0 3,-1.34 3,-3V5c0,-1.66 -1.34,-3 -3,-3S9,3.34 9,5v6C9,12.66 10.34,14 12,14zM17,11c0,2.76 -2.24,5 -5,5s-5,-2.24 -5,-5H5c0,3.53 2.61,6.43 6,6.92V21h2v-3.08c3.39,-0.49 6,-3.39 6,-6.92H17z" />
+          </g>
+        </svg>
+        <span class="logo-text">Rec<span>AI</span></span>
+      </a>
+      
+      <nav class="nav-links" id="main-navigation">
+        <a href="#why-recai" class="nav-item">Dlaczego RecAI</a>
+        <a href="#demo" class="nav-item">Interaktywne Demo</a>
+        <a href="#how-it-works" class="nav-item">Jak to działa</a>
+        <a href="#faq" class="nav-item">FAQ</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://github.com" target="_blank" rel="noopener" class="btn btn-secondary nav-btn-git" id="nav-github-btn">
+          GitHub
+        </a>
+        <a href="#download" class="btn btn-primary nav-btn-dl" id="nav-download-btn">
+          Pobierz APK
+        </a>
+      </div>
+      
+      <!-- Mobile Menu Button -->
+      <button class="mobile-menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="main-navigation" aria-label="Otwórz menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section max-width section-padding" id="hero">
+      <div class="hero-content">
+        <div class="badge" id="hero-badge">Projekt Hobbystyczny dla Power-Userów</div>
+        <h1 class="hero-title">
+          Zamieniaj nagrania w tekst i podsumowania <span>bez chmury pośredników</span>
+        </h1>
+        <p class="hero-description">
+          Lokalny dyktafon na Androida z transkrypcją Whisper i sztuczną inteligencją GPT. Projekt w 100% hobbystyczny, stworzony dla zaawansowanych użytkowników (power-userów) ceniących prywatność. Wpisujesz własny klucz API OpenAI – Twoje dane trafiają bezpośrednio do dostawcy, bez pośredników.
+        </p>
+        <div class="hero-buttons">
+          <a href="#download" class="btn btn-primary btn-lg" id="hero-cta-download">
+            Pobierz aplikację (.APK)
+          </a>
+          <a href="#demo" class="btn btn-secondary btn-lg" id="hero-cta-demo">
+            Zobacz demo
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Prywatności danych</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">0 zł</span>
+            <span class="stat-label">Opłat subskrypcyjnych</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">WAV</span>
+            <span class="stat-label">Lokalny format audio</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Hero Interactive Phone Mockup -->
+      <div class="hero-mockup-container" id="hero-mockup">
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-screen" style="padding: 0;">
+            <img src="screens/Screenshot_20260617_200008_RecAI.jpg" alt="Ekran nagrywania aplikacji RecAI" class="phone-screen-img" style="width: 100%; height: 100%; object-fit: cover; border-radius: 26px;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UVP Section (Dlaczego RecAI) -->
+    <section class="uvp-section section-padding" id="why-recai">
+      <div class="max-width">
+        <div class="section-header">
+          <h2 class="section-subtitle">Hobbystyczny Projekt Open Source</h2>
+          <p class="section-title-large">Stworzony dla maksymalnej prywatności power-userów</p>
+        </div>
+        
+        <div class="grid-3">
+          <!-- Card 1 -->
+          <div class="uvp-card" id="uvp-card-privacy">
+            <div class="uvp-icon">🔒</div>
+            <h3 class="uvp-title">100% Prywatności i Szyfrowanie</h3>
+            <p class="uvp-text">
+              Twój klucz API OpenAI jest szyfrowany za pomocą <code>EncryptedSharedPreferences</code> w bezpiecznym, sprzętowym Keystore systemu Android. Aplikacja łączy się bezpośrednio z serwerami OpenAI przez TLS. Brak serwerów pośredniczących twórcy aplikacji.
+            </p>
+          </div>
+          <!-- Card 2 -->
+          <div class="uvp-card" id="uvp-card-offline">
+            <div class="uvp-icon">💾</div>
+            <h3 class="uvp-title">Projekt Offline-first</h3>
+            <p class="uvp-text">
+              Nagrywanie, odtwarzanie (ExoPlayer), biblioteka oraz baza danych (Room SQLite) działają w pełni lokalnie i offline. Transkrypcja i podsumowanie są wykonywane na Twoje życzenie, a ich wyniki trwale zapisywane w bazie, by nie płacić ponownie.
+            </p>
+          </div>
+          <!-- Card 3 -->
+          <div class="uvp-card" id="uvp-card-cost">
+            <div class="uvp-icon">💎</div>
+            <h3 class="uvp-title">Dla Power-Userów (Własne API)</h3>
+            <p class="uvp-text">
+              Aplikacja powstała hobbystycznie. Zamiast płacić abonamenty pośrednikom, korzystasz z własnego klucza OpenAI API i płacisz grosze bezpośrednio dostawcy (Whisper: ok. 2.5 gr za minutę). Pamiętaj o zabezpieczeniu konta i ustawieniu limitów wydatków!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Demo Section (Live Simulator) -->
+    <section class="demo-section section-padding" id="demo">
+      <div class="max-width">
+        <div class="section-header">
+          <h2 class="section-subtitle">Wypróbuj w przeglądarce</h2>
+          <p class="section-title-large">Zobacz, jak RecAI przetwarza Twój głos</p>
+          <p class="section-desc">Kliknij przycisk odtwarzania poniżej, aby zasymulować nagrywanie i proces generowania notatek przez sztuczną inteligencję na żywo.</p>
+        </div>
+
+        <!-- Simulator Board -->
+        <div class="simulator-container" id="simulator-widget">
+          <!-- Left side: Player simulator -->
+          <div class="simulator-player-card">
+            <div class="player-header">
+              <span class="player-badge">Wersja demonstracyjna</span>
+              <span class="player-title">Wykład_Sztuczna_Inteligencja.wav</span>
+            </div>
+            
+            <div class="player-visuals">
+              <!-- Static/Dynamic Waveform animation -->
+              <div class="waveform-animator" id="waveform-visual">
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+              </div>
+            </div>
+
+            <div class="player-controls">
+              <div class="time-display">
+                <span id="player-current-time">00:00</span>
+                <span id="player-total-time">00:12</span>
+              </div>
+              <div class="progress-bar-container" id="player-progress-container">
+                <div class="progress-bar-fill" id="player-progress-fill" style="width: 0%;"></div>
+              </div>
+              <button class="btn-play" id="btn-demo-play" aria-label="Uruchom symulację transkrypcji">
+                <span class="play-icon">▶</span>
+                <span class="play-text">Uruchom demonstrację</span>
+              </button>
+            </div>
+            
+            <div class="recording-tag-bar">
+              <span class="tag-badge bg-tag-praca">#Praca</span>
+              <span class="tag-badge bg-tag-nauka">#Nauka</span>
+              <span class="tag-badge bg-tag-notatka">#Notatka</span>
+            </div>
+          </div>
+
+          <!-- Right side: Real-time Transcript & Summary view -->
+          <div class="simulator-output-card">
+            <!-- Tabs -->
+            <div class="simulator-tabs">
+              <button class="tab-btn active" id="tab-transcript-btn" data-target="tab-transcript">Transkrypcja</button>
+              <button class="tab-btn" id="tab-summary-btn" data-target="tab-summary" disabled>Podsumowanie AI</button>
+            </div>
+            
+            <div class="tab-content-container">
+              <!-- Tab 1: Transcript -->
+              <div class="tab-content active" id="tab-transcript">
+                <p class="transcript-placeholder" id="transcript-waiting-msg">
+                  Uruchom demonstrację za pomocą przycisku po lewej stronie, aby rozpocząć symulację transkrypcji Whisper...
+                </p>
+                <div class="transcript-text-flow" id="transcript-text-flow">
+                  <!-- Generated text dynamically here -->
+                </div>
+              </div>
+              
+              <!-- Tab 2: Summary -->
+              <div class="tab-content" id="tab-summary">
+                <div class="summary-ai-output" id="summary-ai-output">
+                  <!-- Generated summary here -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works section-padding" id="how-it-works">
+      <div class="max-width">
+        <div class="section-header">
+          <h2 class="section-subtitle">Instrukcja działania</h2>
+          <p class="section-title-large">Wygoda i bezpieczeństwo w 3 prostych krokach</p>
+        </div>
+
+        <div class="steps-container">
+          <!-- Step 1 -->
+          <div class="step-card" id="step-1">
+            <div class="step-number">01</div>
+            <h3 class="step-title">Wprowadź swój klucz API</h3>
+            <p class="step-text">
+              Po zainstalowaniu aplikacji wejdź w ustawienia i wklej swój własny klucz API OpenAI. Zostanie on zaszyfrowany i zapisany w bezpiecznym Keystorze urządzenia. Połączenie odbywa się bezpośrednio z API OpenAI (https://api.openai.com).
+            </p>
+          </div>
+          <!-- Step 2 -->
+          <div class="step-card" id="step-2">
+            <div class="step-number">02</div>
+            <h3 class="step-title">Nagrywaj w tle</h3>
+            <p class="step-text">
+              Uruchom nagrywanie jednym przyciskiem. Aplikacja wykorzystuje systemowy <code>Foreground Service</code> z typem mikrofonu, dzięki czemu nagrywa stabilnie nawet po zablokowaniu ekranu czy przejściu do innej aplikacji.
+            </p>
+          </div>
+          <!-- Step 3 -->
+          <div class="step-card" id="step-3">
+            <div class="step-number">03</div>
+            <h3 class="step-title">Generuj transkrypcje i tagi</h3>
+            <p class="step-text">
+              Kliknij przycisk „Otwórz notatkę”, a aplikacja prześle plik WAV bezpośrednio do Whisper API, a następnie GPT API, generując transkrypcję i podsumowanie w punktach. Przypisuj kolorowe tagi i wygodnie filtruj nagrania.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Power-User Features Section -->
+    <section class="poweruser-features section-padding" id="features">
+      <div class="max-width">
+        <div class="section-header">
+          <h2 class="section-subtitle">Nowości w wersji v1.2</h2>
+          <p class="section-title-large">Zaawansowane możliwości pod Twoją kontrolą</p>
+          <p class="section-desc">RecAI stale się rozwija, oferując elastyczność i bezpieczeństwo dostosowane do wymagań power-userów.</p>
+        </div>
+
+        <div class="grid-3" style="margin-top: 40px;">
+          <!-- Feature 1: Blokada odciskiem palca -->
+          <div class="uvp-card">
+            <div class="uvp-icon">🔑</div>
+            <h3 class="uvp-title">Blokada odciskiem palca</h3>
+            <p class="uvp-text">
+              Zabezpiecz dostęp do swoich nagrań. Zaimplementowane wsparcie dla systemowego <code>BiometricPrompt</code> systemu Android wymaga weryfikacji odciskiem palca przed otwarciem biblioteki i ustawień.
+            </p>
+          </div>
+          <!-- Feature 2: Baza Tagów SQL -->
+          <div class="uvp-card">
+            <div class="uvp-icon">🏷️</div>
+            <h3 class="uvp-title">Room DB Tag Manager</h3>
+            <p class="uvp-text">
+              Tagi są teraz w pełni zorganizowane lokalnie w bazie SQL. Zarządzaj kolorami, edytuj nazwy oraz twórz własne kategorie za pomocą wbudowanego ekranu zarządzania tagami.
+            </p>
+          </div>
+          <!-- Feature 3: Personalizacja modeli -->
+          <div class="uvp-card">
+            <div class="uvp-icon">⚙️</div>
+            <h3 class="uvp-title">Konfiguracja Modelu i Języka</h3>
+            <p class="uvp-text">
+              Ty decydujesz o kosztach i inteligencji analizy. Wybierz między ekonomicznym modelem <code>GPT-3.5</code> a inteligentnym <code>GPT-4o</code> oraz dostosuj język analizy w locie.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots Gallery Section -->
+    <section class="screenshots-section section-padding" id="screenshots">
+      <div class="max-width">
+        <div class="section-header">
+          <h2 class="section-subtitle">Galeria Aplikacji</h2>
+          <p class="section-title-large">Zobacz RecAI w akcji</p>
+          <p class="section-desc">Zrzuty ekranu z aplikacji zainstalowanej na urządzeniu Android, prezentujące tryb ciemny i funkcjonalności.</p>
+        </div>
+
+        <div class="screenshots-carousel-container">
+          <div class="screenshots-track">
+            <div class="screenshot-item">
+              <img src="screens/Screenshot_20260617_200008_RecAI.jpg" alt="Ekran nagrywania RecAI z pulsacją" loading="lazy">
+              <span>Nagrywanie audio</span>
+            </div>
+            <div class="screenshot-item">
+              <img src="screens/Screenshot_20260617_200020_RecAI.jpg" alt="Ekran biblioteki nagrań w RecAI" loading="lazy">
+              <span>Biblioteka nagrań</span>
+            </div>
+            <div class="screenshot-item">
+              <img src="screens/Screenshot_20260617_200025_RecAI.jpg" alt="Odsłuch nagrania z paskiem postępu" loading="lazy">
+              <span>Odsłuch WAV</span>
+            </div>
+            <div class="screenshot-item">
+              <img src="screens/Screenshot_20260617_200028_RecAI.jpg" alt="Ekran szczegółów i transkrypcji" loading="lazy">
+              <span>Transkrypcja</span>
+            </div>
+            <div class="screenshot-item">
+              <img src="screens/Screenshot_20260617_200038_RecAI.jpg" alt="Podsumowanie GPT notatki w zakładce" loading="lazy">
+              <span>Podsumowanie AI</span>
+            </div>
+            <div class="screenshot-item">
+              <img src="screens/Screenshot_20260617_200051_RecAI.jpg" alt="Ekran ustawień klucza API i biometrii" loading="lazy">
+              <span>Ustawienia aplikacji</span>
+            </div>
+            <div class="screenshot-item">
+              <img src="screens/Screenshot_20260617_200057_RecAI.jpg" alt="Ekran bazy tagów i zarządzania" loading="lazy">
+              <span>Zarządzanie tagami</span>
+            </div>
+            <div class="screenshot-item">
+              <img src="screens/Screenshot_20260617_200106_RecAI.jpg" alt="Dodawanie i edycja kategorii" loading="lazy">
+              <span>Edycja kategorii</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Safety Notice Section -->
+    <section class="safety-section section-padding" id="safety">
+      <div class="max-width">
+        <div class="api-warning-card">
+          <span class="warning-icon">⚠️</span>
+          <div class="warning-content">
+            <h3>Ważne ostrzeżenie dotyczące klucza API</h3>
+            <p>
+              Aplikacja RecAI jest projektem w 100% hobbystycznym i nie posiada własnego pośredniczącego serwera chmurowego. Wymaga to wprowadzenia własnego klucza API OpenAI. 
+            </p>
+            <p style="margin-top: 10px;">
+              <strong>Nieostrożne obchodzenie się z kluczem API (np. udostępnianie go osobom trzecim) lub brak limitów na koncie OpenAI niesie ze sobą ryzyko niekontrolowanych opłat.</strong> Aby zapewnić bezpieczeństwo finansowe, zalecamy bezwzględne ustawienie limitów budżetowych (Hard i Soft Limits) bezpośrednio w panelu OpenAI Billing przed rozpoczęciem korzystania z aplikacji.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section section-padding" id="faq">
+      <div class="max-width">
+        <div class="section-header">
+          <h2 class="section-subtitle">Masz pytania?</h2>
+          <p class="section-title-large">Często zadawane pytania (FAQ)</p>
+        </div>
+
+        <div class="faq-accordion-container">
+          <!-- FAQ Item 1 -->
+          <div class="faq-item" id="faq-item-1">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
+              Czy programista aplikacji ma dostęp do moich nagrań i klucza API?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-answer-1" hidden>
+              <p>
+                <strong>Zdecydowanie nie!</strong> Aplikacja nie posiada własnego backendu. Komunikacja odbywa się bezpośrednio między Twoim urządzeniem z systemem Android a oficjalnymi serwerami OpenAI przez bezpieczne szyfrowanie TLS. Twój klucz API jest przechowywany w pamięci telefonu przy użyciu szyfrowania <code>EncryptedSharedPreferences</code> zintegrowanego ze sprzętowym Keystore systemu Android. Kod projektu jest w 100% otwarty (Open Source) na GitHubie, dzięki czemu każdy programista może zweryfikować brak ukrytego wysyłania danych.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 2 -->
+          <div class="faq-item" id="faq-item-2">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
+              Jakie są koszty korzystania z własnego klucza API?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-answer-2" hidden>
+              <p>
+                Koszt jest uzależniony wyłącznie od cen cennika OpenAI i Twojego realnego zużycia. 
+                Dla modelu transkrypcji <strong>Whisper API</strong> cena wynosi $0.006 za minutę (około 2.5 grosza). 
+                Dla podsumowań tekstu modelem <strong>GPT-4o mini</strong> koszt to ułamki grosza za zapytanie. 
+                Nagranie trwające 30 minut to łączny koszt około 75 groszy bezpośrednio na Twoim koncie rozliczeniowym OpenAI. Aplikacja RecAI jest całkowicie bezpłatna i nie pobiera żadnych prowizji ani opłat subskrypcyjnych.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 3 -->
+          <div class="faq-item" id="faq-item-3">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
+              Jak wygenerować klucz API OpenAI?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-answer-3" hidden>
+              <p>
+                Aby zdobyć klucz API:
+                1. Zarejestruj się lub zaloguj na stronie <a href="https://platform.openai.com/" target="_blank" rel="noopener">platform.openai.com</a>.<br>
+                2. Przejdź do sekcji rozliczeń (Billing) i doładuj konto kwotą np. $5.<br>
+                3. Wejdź w zakładkę „API Keys”, kliknij „Create new secret key” i skopiuj wygenerowany klucz.<br>
+                4. Wklej skopiowany klucz w ekranie ustawień aplikacji RecAI.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 4 -->
+          <div class="faq-item" id="faq-item-4">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
+              Czy aplikacja nagrywa, gdy telefon jest zablokowany?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-answer-4" hidden>
+              <p>
+                <strong>Tak.</strong> Usługa nagrywania działa jako Android Foreground Service (usługa pierwszoplanowa) z trwałym powiadomieniem w pasku stanu i zadeklarowanym typem <code>microphone</code> (zgodnie z wymogami Google dla systemów Android 14+). Dzięki temu system operacyjny nie zabija procesu nagrywania, a aplikacja stabilnie zapisuje dźwięk w tle, nawet gdy ekran urządzenia jest wyłączony lub korzystasz z innych programów.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 5 -->
+          <div class="faq-item" id="faq-item-5">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">
+              Gdzie są zapisywane nagrania audio?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-answer-5" hidden>
+              <p>
+                Wszystkie pliki dźwiękowe (w formacie WAV PCM 16kHz mono) są zapisywane w pamięci prywatnej aplikacji na urządzeniu (katalog <code>files</code>). Informacje o transkrypcjach, podsumowaniach i tagach znajdują się w lokalnej bazie SQLite obsługiwanej przez Room. Odinstalowanie aplikacji usunie wszystkie powiązane z nią nagrania z telefonu.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 6 -->
+          <div class="faq-item" id="faq-item-6">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-6">
+              Jak bezpiecznie posługiwać się moim kluczem API?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-answer-6" hidden>
+              <p>
+                <strong>Klucz API jest jak hasło do Twojego konta OpenAI.</strong> Nigdy nie udostępniaj go innym ani nie publikuj w sieci. Choć RecAI szyfruje go lokalnie na telefonie przy użyciu <code>EncryptedSharedPreferences</code> (AES-256-GCM) i sprzętowego Keystora, powinieneś dodatkowo zabezpieczyć swoje konto OpenAI:
+                1. Przejdź do panelu OpenAI w zakładkę <strong>Settings -> Limits</strong>.<br>
+                2. Ustaw limit wydatków (np. $5 lub $10 miesięcznie) w polu <strong>Monthly budget limits</strong>.<br>
+                3. Włącz opcję powiadomień e-mail przy przekroczeniu określonego progu. Dzięki temu w 100% uchronisz się przed niekontrolowanymi kosztami.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 7 -->
+          <div class="faq-item" id="faq-item-7">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-7">
+              Dla kogo przeznaczona jest ta aplikacja?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-answer-7" hidden>
+              <p>
+                RecAI to **projekt hobbystyczny stworzony dla power-userów** – zaawansowanych użytkowników, którzy chcą mieć pełną kontrolę nad swoimi danymi. Ponieważ aplikacja nie posiada własnych serwerów ani subskrypcji, wymaga odrobiny konfiguracji technicznej (wygenerowanie klucza API w OpenAI). Zyskujesz w ten sposób niezależność, brak opłat abonamentowych oraz absolutną prywatność swoich nagrań.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download CTA Section -->
+    <section class="download-section section-padding" id="download">
+      <div class="max-width download-card-glow">
+        <div class="download-card">
+          <h2 class="download-title">Pobierz RecAI już dziś</h2>
+          <p class="download-text">
+            Uzyskaj pełną niezależność, bezpieczeństwo i kontrolę nad swoimi danymi audio. Aplikacja gotowa do instalacji bezpośrednio z pliku APK na Twoim telefonie z systemem Android.
+          </p>
+          <div class="download-actions">
+            <a href="https://github.com" target="_blank" rel="noopener" class="btn btn-primary btn-lg btn-download" id="cta-final-download">
+              <span class="dl-icon">⬇</span> Pobierz najnowsze APK (v1.2)
+            </a>
+            <a href="https://github.com" target="_blank" rel="noopener" class="btn btn-secondary btn-lg btn-code" id="cta-final-github">
+              Zobacz kod na GitHubie
+            </a>
+          </div>
+          <p class="download-info">Minimalne wymagania: Android 8.0 (Oreo, API 26) lub nowszy.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-container">
+    <div class="footer max-width">
+      <div class="footer-brand">
+        <div class="logo-link">
+          <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="30" height="30">
+            <circle cx="50" cy="50" r="46" fill="#0B0C10" stroke="#66FCF1" stroke-width="2" />
+            <g transform="translate(23.5, 22.5) scale(2.2)">
+              <path fill="#66FCF1" d="M12,14c1.66,0 3,-1.34 3,-3V5c0,-1.66 -1.34,-3 -3,-3S9,3.34 9,5v6C9,12.66 10.34,14 12,14zM17,11c0,2.76 -2.24,5 -5,5s-5,-2.24 -5,-5H5c0,3.53 2.61,6.43 6,6.92V21h2v-3.08c3.39,-0.49 6,-3.39 6,-6.92H17z" />
+            </g>
+          </svg>
+          <span class="logo-text">Rec<span>AI</span></span>
+        </div>
+        <p class="footer-desc">Prywatne transkrypcje i inteligentne notatki bezpośrednio na Twoim smartfonie.</p>
+      </div>
+      
+      <div class="footer-links-group">
+        <div class="footer-links-col">
+          <h4>Projekt</h4>
+          <a href="#why-recai">Dlaczego RecAI</a>
+          <a href="#demo">Interaktywne Demo</a>
+          <a href="#how-it-works">Jak to działa</a>
+        </div>
+        <div class="footer-links-col">
+          <h4>Prawne</h4>
+          <a href="https://github.com" target="_blank" rel="noopener">Polityka Prywatności</a>
+          <a href="https://github.com" target="_blank" rel="noopener">Licencja MIT</a>
+        </div>
+        <div class="footer-links-col">
+          <h4>Wsparcie</h4>
+          <a href="#faq">Najczęstsze Pytania</a>
+          <a href="https://github.com" target="_blank" rel="noopener">Zgłoś błąd</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom max-width">
+      <p>&copy; 2026 RecAI Project. Kod aplikacji na licencji MIT. Strona stworzona z najwyższą dbałością o prywatność.</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
