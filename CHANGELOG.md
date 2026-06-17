@@ -5,6 +5,7 @@ Wszystkie znaczące zmiany w projekcie strony lądowania będą udokumentowane w
 ## [1.1.0] - 2026-06-17
 
 ### Added
+- **Podpięcie pobierania APK (v1.3)**: Zaktualizowano wersję pobierania na landing page do najnowszej wersji `v1.3` oraz podpięto główny przycisk pobierania pod dedykowany URL wydań w nowym repozytorium aplikacji: `https://github.com/apkmasondev/recai_apk/tree/main/releases`.
 - **Galeria Zrzutów Ekranu (Screenshots)**: Wdrożenie nowej sekcji "Galeria Aplikacji" z horyzontalną karuzelą prezentującą 8 autentycznych zrzutów ekranu z aplikacji Android.
 - **Dedykowana sekcja bezpieczeństwa API**: Przeniesienie karty ostrzeżenia dotyczącej klucza API z nagłówka (sekcji Hero) do dedykowanej sekcji bezpieczeństwa ("Ważne ostrzeżenie") nad FAQ, co znacząco poprawiło estetykę pierwszego ekranu.
 - **Prawdziwy zrzut ekranu w sekcji Hero**: Zastąpienie syntetycznego podglądu CSS telefonu prawdziwym zrzutem ekranu aplikacji RecAI, co urealniło odbiór witryny.
