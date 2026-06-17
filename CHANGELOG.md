@@ -14,10 +14,14 @@ Wszystkie znaczące zmiany w projekcie strony lądowania będą udokumentowane w
 - **Dodanie ikonki Favicon (SEO)**: Zaimplementowanie wektorowej ikony na bazie logo w sekcji `head` strony, usuwając błędy w logach serwera i poprawiając indeksowanie SEO.
 - **Poprawa nazewnictwa biometrii**: Usunięcie błędnych odniesień do FaceID na rzecz autoryzacji odciskiem palca (Android-only).
 
+### Changed
+- **Kierunek odnośnika kodu źródłowego**: Zmieniono cel przycisku "Zobacz kod na GitHubie" na główne repozytorium kodu źródłowego aplikacji Android: `https://github.com/apkmasondev/recai_apk/tree/main`.
+- **Usunięcie odnośnika Polityki Prywatności**: Usunięto pusty link do Polityki Prywatności z kolumny "Prawne" w stopce strony.
+
 ### Fixed
 - **Układ tagów w odtwarzaczu demo (RWD)**: Naprawiono błąd, w którym trzeci tag (`#Notatka`) wychodził poza krawędź karty odtwarzacza na wąskich ekranach. Dodano `min-width: 0` do karty oraz wdrożono pomniejszenie rozmiarów i paddingów tagów na ekranach poniżej 480px, gwarantując bezbłędne zawijanie.
 - **Karta ostrzeżenia API na urządzeniach mobilnych**: Zmieniono układ karty na pionowy (ikona wyśrodkowana na górze, nagłówek wyśrodkowany, tekst z wyrównaniem do lewej) dla ekranów mobilnych i tabletów. Dzięki temu tekst zyskał 100% szerokości użytkowej, wysokość karty drastycznie się zmniejszyła, a potrzeba przewijania została zminimalizowana.
-- **Etykieta podsumowania w demo (RWD)**: Skrócono etykietę zakładki z "Szybkie Podsumowanie (AI)" do "Podsumowanie AI" oraz wdrożono regułę `flex-wrap: wrap` dla kontenera zakładek na wąskich ekranach, zapobiegając wychodzeniu tekstu poza obszar karty.`
+- **Etykieta podsumowania w demo (RWD)**: Skrócono etykietę zakładki z "Szybkie Podsumowanie (AI)" do "Podsumowanie AI" oraz wdrożono regułę `flex-wrap: wrap` dla kontenera zakładek na wąskich ekranach, zapobiegając wychodzeniu tekstu poza obszar karty.
 
 ## [1.0.0] - 2026-06-16
 
