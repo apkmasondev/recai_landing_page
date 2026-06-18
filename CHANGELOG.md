@@ -17,6 +17,7 @@ Wszystkie znaczące zmiany w projekcie strony lądowania będą udokumentowane w
 ### Changed
 - **Kierunek odnośnika kodu źródłowego**: Zmieniono cel przycisku "Zobacz kod na GitHubie" na główne repozytorium kodu źródłowego aplikacji Android: `https://github.com/apkmasondev/recai_apk/tree/main`.
 - **Usunięcie odnośnika Polityki Prywatności**: Usunięto pusty link do Polityki Prywatności z kolumny "Prawne" w stopce strony.
+- **Korekta opisów zrzutów ekranu**: Dostosowano podpisy w galerii ("Odsłuch WAV" zmieniono na "Podsumowanie AI", a "Podsumowanie AI" na "Konto OpenAI") dla dokładniejszego odzwierciedlenia rzeczywistej zawartości ekranów aplikacji.
 
 ### Fixed
 - **Układ tagów w odtwarzaczu demo (RWD)**: Naprawiono błąd, w którym trzeci tag (`#Notatka`) wychodził poza krawędź karty odtwarzacza na wąskich ekranach. Dodano `min-width: 0` do karty oraz wdrożono pomniejszenie rozmiarów i paddingów tagów na ekranach poniżej 480px, gwarantując bezbłędne zawijanie.
