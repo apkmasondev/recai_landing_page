@@ -18,6 +18,7 @@ Wszystkie znaczące zmiany w projekcie strony lądowania będą udokumentowane w
 - **Kierunek odnośnika kodu źródłowego**: Zmieniono cel przycisku "Zobacz kod na GitHubie" na główne repozytorium kodu źródłowego aplikacji Android: `https://github.com/apkmasondev/recai_apk/tree/main`.
 - **Usunięcie odnośnika Polityki Prywatności**: Usunięto pusty link do Polityki Prywatności z kolumny "Prawne" w stopce strony.
 - **Korekta opisów zrzutów ekranu**: Dostosowano podpisy w galerii ("Odsłuch WAV" zmieniono na "Podsumowanie AI", a "Podsumowanie AI" na "Konto OpenAI") dla dokładniejszego odzwierciedlenia rzeczywistej zawartości ekranów aplikacji.
+- **Uproszczenie nagłówka Hero**: Skrócono główny tytuł strony do „Zamieniaj nagrania w tekst i podsumowania” i wyróżniono drugą część zdania dwukolorowym gradientem, co nadało stronie nowocześniejszy, bardziej minimalistyczny wygląd.
 
 ### Fixed
 - **Odstępy boczne w sekcji Hero (RWD)**: Rozwiązano problem nakładania się klas, w którym `.section-padding` nadpisywał boczne marginesy `.max-width`. Zmieniono definicję paddingów na wyłącznie pionowe, dzięki czemu tekst w sekcji Hero na smartfonach nie przykleja się do lewej i prawej krawędzi (przywrócono 24px bezpiecznego odstępu).
