@@ -90,7 +90,8 @@ body {
 }
 
 .section-padding {
-  padding: 100px 0;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 .grid-3 {
@@ -111,7 +112,8 @@ body {
     grid-template-columns: 1fr;
   }
   .section-padding {
-    padding: 60px 0;
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
 }
 

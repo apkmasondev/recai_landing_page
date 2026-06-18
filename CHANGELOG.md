@@ -20,6 +20,8 @@ Wszystkie znaczące zmiany w projekcie strony lądowania będą udokumentowane w
 - **Korekta opisów zrzutów ekranu**: Dostosowano podpisy w galerii ("Odsłuch WAV" zmieniono na "Podsumowanie AI", a "Podsumowanie AI" na "Konto OpenAI") dla dokładniejszego odzwierciedlenia rzeczywistej zawartości ekranów aplikacji.
 
 ### Fixed
+- **Odstępy boczne w sekcji Hero (RWD)**: Rozwiązano problem nakładania się klas, w którym `.section-padding` nadpisywał boczne marginesy `.max-width`. Zmieniono definicję paddingów na wyłącznie pionowe, dzięki czemu tekst w sekcji Hero na smartfonach nie przykleja się do lewej i prawej krawędzi (przywrócono 24px bezpiecznego odstępu).
+- **Skrócenie opisu w sekcji Hero**: Skrócono i usprawniono tekst opisu głównego na pierwszym ekranie, aby był bardziej zwięzły, konkretny i dynamiczny.
 - **Układ tagów w odtwarzaczu demo (RWD)**: Naprawiono błąd, w którym trzeci tag (`#Notatka`) wychodził poza krawędź karty odtwarzacza na wąskich ekranach. Dodano `min-width: 0` do karty oraz wdrożono pomniejszenie rozmiarów i paddingów tagów na ekranach poniżej 480px, gwarantując bezbłędne zawijanie.
 - **Karta ostrzeżenia API na urządzeniach mobilnych**: Zmieniono układ karty na pionowy (ikona wyśrodkowana na górze, nagłówek wyśrodkowany, tekst z wyrównaniem do lewej) dla ekranów mobilnych i tabletów. Dzięki temu tekst zyskał 100% szerokości użytkowej, wysokość karty drastycznie się zmniejszyła, a potrzeba przewijania została zminimalizowana.
 - **Etykieta podsumowania w demo (RWD)**: Skrócono etykietę zakładki z "Szybkie Podsumowanie (AI)" do "Podsumowanie AI" oraz wdrożono regułę `flex-wrap: wrap` dla kontenera zakładek na wąskich ekranach, zapobiegając wychodzeniu tekstu poza obszar karty.
